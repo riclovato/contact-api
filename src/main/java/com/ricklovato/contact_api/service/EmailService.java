@@ -22,6 +22,7 @@ public class EmailService {
 
     public void sendEmail(EmailDTO emailDTO) {
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(mailTo);
         message.setTo(mailTo);
         message.setSubject(mailSubject);
         message.setText("de: " + emailDTO.email() + "\n\n" + emailDTO.message());
