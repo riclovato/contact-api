@@ -1,15 +1,15 @@
 package com.ricklovato.contact_api.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.http.MediaType;
-import java.util.List;
 
 import com.ricklovato.contact_api.dto.EmailDTO;
 
@@ -36,7 +36,7 @@ public class EmailService {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Map<String, Object> body = new HashMap<>();
-        body.put("sender", Map.of("email", mailTo));
+        body.put("sender", Map.of("email", emailDTO.email()));
         body.put("to", List.of(Map.of("email", mailTo))); 
         body.put("subject", mailSubject);
         body.put("textContent", "De: " + emailDTO.email() + "\n\n" + emailDTO.message());
