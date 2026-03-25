@@ -201,3 +201,5 @@ fetch("https://sua-api.onrender.com/contact", {
 
 ---
 
+## Em funcionamento aqui:
+[https://portfolio-ricardo-lovato.netlify.app/](https://portfolio-ricardo-lovato.netlify.app/)
