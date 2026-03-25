@@ -1,17 +1,15 @@
 package com.ricklovato.contact_api.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-
-import com.ricklovato.contact_api.service.EmailService;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import com.ricklovato.contact_api.dto.EmailDTO;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ricklovato.contact_api.dto.EmailDTO;
+import com.ricklovato.contact_api.service.EmailService;
 
 import jakarta.validation.Valid;
 
@@ -30,4 +28,10 @@ public class ContactController {
         emailService.sendEmail(emailDTO);
         return ResponseEntity.ok("Email sent successfully");
     }
+    
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("Contact API is running smoothly");
+    }
+
 }
